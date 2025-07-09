@@ -8,10 +8,5 @@ A aplicação implementa o CRUD completo para ambas as entidades, além de utili
 
 ### 🛠 Testando a API com Postman
 
-Você pode baixar a coleção do Postman para testar a API aqui:
+Você pode baixar a coleção do Postman para testar a API aqui: [Baixar collection do Postman](https://raw.githubusercontent.com/tamiresdasilva/author-book-api/main/postman/author-book-api.postman_collection.json)
 
-De que coisas você precisa para instalar o software e como instalá-lo?
-
-```
-[Baixar collection do Postman](https://raw.githubusercontent.com/tamiresdasilva/author-book-api/main/postman/author-book-api.postman_collection.json)
-```
