@@ -1,5 +1,7 @@
 package br.com.ulbra.author_book_api.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -16,6 +18,7 @@ public class Autor {
     private LocalDate dataNascimento;
 
     @OneToMany(mappedBy = "autor")
+    @JsonManagedReference
     private List<Livro> livros = new ArrayList<Livro>(); //Inicializa para já ter um livros vazio
 
 

@@ -22,7 +22,7 @@ public class LivroService {
         this.autorService = autorService;
     }
 
-    public LivroResponseDTO consultarLivroPorId(Long id){
+    public Livro consultarLivroPorId(Long id){
         return this.livroRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro com o ID " + id + " não foi encontrado."));
     }
 
@@ -31,7 +31,7 @@ public class LivroService {
                 item -> new LivroResponseDTO(item.getTitulo(), item.getEditora(), item.getAnoPublicacao(), item.getQtdPaginas(), new LivroAutorResponseDTO(item.getAutor().getNome())));
     }
 
-    public LivroResponseDTO cadastrarLivro(LivroRequestDTO livroRequest){
+    public Livro cadastrarLivro(LivroRequestDTO livroRequest){
         Autor autor  = autorService.consultarAutorPorId(livroRequest.getAutorId());
 
         //converter para uma entity

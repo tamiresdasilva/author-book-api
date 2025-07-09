@@ -34,12 +34,12 @@ public class LivroController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<LivroResponseDTO> consultarLivroPorId(@PathVariable Long id){
+    public ResponseEntity<Livro> consultarLivroPorId(@PathVariable Long id){
         return ResponseEntity.ok(this.livroService.consultarLivroPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<LivroResponseDTO> cadastrarLivro(@RequestBody LivroRequestDTO livroRequest) {
+    public ResponseEntity<Livro> cadastrarLivro(@RequestBody LivroRequestDTO livroRequest) {
         Livro livro = this.livroService.cadastrarLivro(livroRequest);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")

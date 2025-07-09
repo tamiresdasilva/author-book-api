@@ -1,5 +1,6 @@
 package br.com.ulbra.author_book_api.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 
@@ -16,6 +17,7 @@ public class Livro {
 
     @ManyToOne
     @JoinColumn(name = "autor_id")
+    @JsonBackReference
     private Autor autor;
 
     public Livro(){}
