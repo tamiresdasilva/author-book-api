@@ -1,9 +1,7 @@
 package br.com.ulbra.author_book_api.controllers;
 
-import br.com.ulbra.author_book_api.dtos.AutorDTO;
 import br.com.ulbra.author_book_api.dtos.request.LivroRequestDTO;
 import br.com.ulbra.author_book_api.dtos.response.LivroResponseDTO;
-import br.com.ulbra.author_book_api.entities.Autor;
 import br.com.ulbra.author_book_api.entities.Livro;
 import br.com.ulbra.author_book_api.services.LivroService;
 import org.springframework.data.domain.Page;
@@ -22,11 +20,6 @@ public class LivroController {
     public LivroController(LivroService livroService) {
         this.livroService = livroService;
     }
-
-//    @GetMapping
-//    public List<LivroResponseDTO> getAllLivros() {
-//        return this.livroService.getAllLivros();
-//    }
 
     @GetMapping
     public Page<LivroResponseDTO> listarTodosLivros(Pageable pageable) {
@@ -49,7 +42,7 @@ public class LivroController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Livro> atualizarLivro(@RequestBody Livro livroRequest, @PathVariable Long id) {
+    public ResponseEntity<Livro> atualizarLivro(@RequestBody LivroRequestDTO livroRequest, @PathVariable Long id) {
         Livro livroAtualizado = this.livroService.atualizarLivro(livroRequest, id);
         return ResponseEntity.ok().body(livroAtualizado);
     }

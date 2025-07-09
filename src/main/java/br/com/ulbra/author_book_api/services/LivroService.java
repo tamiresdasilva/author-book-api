@@ -34,22 +34,25 @@ public class LivroService {
     public Livro cadastrarLivro(LivroRequestDTO livroRequest){
         Autor autor  = autorService.consultarAutorPorId(livroRequest.getAutorId());
 
-        //converter para uma entity
         Livro livro =  new Livro();
         livro.setTitulo(livroRequest.getTitulo());
-
         livro.setEditora(livroRequest.getEditora());
         livro.setQtdPaginas(livroRequest.getQtdPaginas());
         livro.setAnoPublicacao(livroRequest.getAnoPublicacao());
-
         livro.setAutor(autor);
 
         return this.livroRepository.save(livro);
     }
 
-    public Livro atualizarLivro(Livro livroRequest, Long id){
+    public Livro atualizarLivro(LivroRequestDTO livroRequest, Long id){
         Livro livro = this.livroRepository.getReferenceById(id);
         livro.setTitulo(livroRequest.getTitulo());
+        livro.setEditora(livroRequest.getEditora());
+        livro.setQtdPaginas(livroRequest.getQtdPaginas());
+        livro.setAnoPublicacao(livroRequest.getAnoPublicacao());
+
+        Autor autor = autorService.consultarAutorPorId(livroRequest.getAutorId());
+        livro.setAutor(autor);
 
         return this.livroRepository.save(livro);
     }
@@ -59,7 +62,5 @@ public class LivroService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro com o id " + id + " não foi encontrado.");
         }
         livroRepository.deleteById(id);
-/*            Autor autor = this.autorRepository.findById(id).orElseThrow();
-            this.autorRepository.delete(autor);*/
     }
 }

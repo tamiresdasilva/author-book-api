@@ -7,7 +7,7 @@ public class AutorResponseDTO {
     private String nome;
     private String paisOrigem;
     private LocalDate dataNascimento;
-    private List<AutorLivroResponseDTO> livros; //O relacionamento diz que eu vou poder ter muitos livros, por isso lista
+    private List<AutorLivroResponseDTO> livros;
 
     public AutorResponseDTO(String nome, String paisOrigem, LocalDate dataNascimento, List<AutorLivroResponseDTO> livros) {
         this.nome = nome;

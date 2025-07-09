@@ -1,9 +1,7 @@
 package br.com.ulbra.author_book_api.services;
 
-import br.com.ulbra.author_book_api.dtos.AutorDTO;
 import br.com.ulbra.author_book_api.dtos.response.AutorLivroResponseDTO;
 import br.com.ulbra.author_book_api.dtos.response.AutorResponseDTO;
-import br.com.ulbra.author_book_api.dtos.response.LivroResponseDTO;
 import br.com.ulbra.author_book_api.entities.Autor;
 import br.com.ulbra.author_book_api.repositories.AutorRepository;
 import org.springframework.data.domain.Page;
@@ -20,7 +18,6 @@ public class AutorService {
         this.autorRepository = autorRepository;
     }
 
-    //Também tem que mapear
     public Autor consultarAutorPorId(Long id){
         return this.autorRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Autor(a) com o ID " + id + " não foi encontrado(a)."));
     }
@@ -41,6 +38,7 @@ public class AutorService {
         autor.setNome(autorRequest.getNome());
         autor.setPaisOrigem(autorRequest.getPaisOrigem());
         autor.setDataNascimento(autorRequest.getDataNascimento());
+
         return this.autorRepository.save(autor);
     }
 
@@ -49,7 +47,5 @@ public class AutorService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Autor(a) com o id " + id + " não foi encontrado(a).");
         }
         autorRepository.deleteById(id);
-/*            Autor autor = this.autorRepository.findById(id).orElseThrow();
-            this.autorRepository.delete(autor);*/
     }
 }

@@ -1,6 +1,5 @@
 package br.com.ulbra.author_book_api.controllers;
 
-import br.com.ulbra.author_book_api.dtos.AutorDTO;
 import br.com.ulbra.author_book_api.dtos.response.AutorResponseDTO;
 import br.com.ulbra.author_book_api.entities.Autor;
 import br.com.ulbra.author_book_api.services.AutorService;
