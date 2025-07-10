@@ -106,7 +106,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"nome\": \"atualizar1\",\r\n\"paisOrigem\": \"atualizar1\",\r\n\"dataNascimento\": \"1111-11-1\"\r\n}",
+					"raw": "{\"nome\": \"atualizar1\",\r\n\"paisOrigem\": \"atualizar1\",\r\n\"dataNascimento\": \"1111-11-01\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
